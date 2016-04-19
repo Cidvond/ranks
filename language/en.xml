@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de">
+
+  <category name="wcf.acp.group">
+    <item name="wcf.acp.group.option.category.admin.clan.branch"><![CDATA[Branches]]></item>
+    <item name="wcf.acp.group.option.admin.clan.branch.canManageBranches"><![CDATA[Can manage branches]]></item>
+    
+    <item name="wcf.acp.group.option.category.admin.clan.rank"><![CDATA[Ranks]]></item>
+    <item name="wcf.acp.group.option.admin.clan.rank.canManageRanks"><![CDATA[Can manage ranks]]></item>
+  </category>
+
+  <category name="wcf.acp.menu">
+    <item name="wcf.acp.menu.link.clan.branch"><![CDATA[Branches]]></item>
+    <item name="wcf.acp.menu.link.clan.branch.list"><![CDATA[List Branches]]></item>
+    <item name="wcf.acp.menu.link.clan.branch.add"><![CDATA[Add Branch]]></item>
+
+    <item name="wcf.acp.menu.link.clan.rank"><![CDATA[Ranks]]></item>
+    <item name="wcf.acp.menu.link.clan.rank.list"><![CDATA[List Ranks]]></item>
+    <item name="wcf.acp.menu.link.clan.rank.category.list"><![CDATA[List Rank Categories]]></item>
+    <item name="wcf.acp.menu.link.clan.rank.add"><![CDATA[Add Rank]]></item>
+  </category>
+
+  <category name="wcf.acp.clan">
+    <!-- List Branches -->
+    <item name="wcf.acp.clan.branch.list"><![CDATA[Branches]]></item>
+    <item name="wcf.acp.clan.branch.add"><![CDATA[Add Branch]]></item>
+    <item name="wcf.acp.clan.branch.name"><![CDATA[Name]]></item>
+    <item name="wcf.acp.clan.branch.image"><![CDATA[Branch Icon]]></item>
+    <item name="wcf.acp.clan.branch.sortOrder"><![CDATA[Sorting Order]]></item>
+    <item name="wcf.acp.clan.branch.delete.sure"><![CDATA[Are you sure you want to delete this branch?]]></item>
+    <item name="wcf.acp.clan.branch.rankUnavailableImage"><![CDATA[Image for unavailable rank]]></item>
+    <item name="wcf.acp.clan.branch.rankUnavailableImage.description"><![CDATA[This image will be displayed as a placeholder when there is no Rank of a certain paygrade within this Branch.]]></item>
+
+    <!-- Add Branches -->
+    <item name="wcf.acp.clan.branch.isDisabled"><![CDATA[Should this Branch be disabled?]]></item>
+    <item name="wcf.acp.clan.branch.edit"><![CDATA[Edit Branch]]></item>
+
+    <!-- List Ranks -->
+    <item name="wcf.acp.clan.rank.list"><![CDATA[Ranks]]></item>
+    <item name="wcf.acp.clan.rank.add"><![CDATA[Add Rank]]></item>
+    <item name="wcf.acp.clan.rank.name"><![CDATA[Name]]></item>
+    <item name="wcf.acp.clan.rank.paygrade"><![CDATA[Paygrade]]></item>
+    <item name="wcf.acp.clan.rank.prefix"><![CDATA[Abbreviation]]></item>
+    <item name="wcf.acp.clan.rank.image"><![CDATA[Rank Image]]></item>
+    <item name="wcf.acp.clan.rank.branch"><![CDATA[Branch]]></item>
+    <item name="wcf.acp.clan.rank.sortOrder"><![CDATA[Sorting Order]]></item>
+    <item name="wcf.acp.clan.rank.delete.sure"><![CDATA[Are you sure you want to delete this branch?]]></item>
+    <item name="wcf.acp.clan.rank.sortOrder"><![CDATA[Sorting Order]]></item>
+
+    <!-- Add Ranks -->
+    <item name="wcf.acp.clan.rank.isDisabled"><![CDATA[Should this Rank be disabled?]]></item>
+    <item name="wcf.acp.clan.rank.edit"><![CDATA[Edit Rank]]></item>
+  </category>
+
+  <category name="wcf.page">
+    <item name="wcf.page.training.ranks"><![CDATA[Ranks]]></item>
+  </category>
+
+</language>
