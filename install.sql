@@ -1,7 +1,7 @@
 -- Create the Branch list table
 CREATE TABLE wcf1_unkso_branch (
 	branchID INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    userGroupID INT(10),
+  userGroupID INT(10),
 	name VARCHAR(255) NOT NULL,
 	displayOrder INT(10) NOT NULL,
 	image VARCHAR(500) NOT NULL,

@@ -1,4 +1,5 @@
-<?php namespace wcf\data\rank;
+<?php
+namespace wcf\data\rank;
 
 use wcf\data\DatabaseObjectList;
 
