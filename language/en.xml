@@ -52,5 +52,6 @@
 
   <category name="wcf.page">
     <item name="wcf.page.training.ranks"><![CDATA[Ranks]]></item>
+    <item name="wcf.page.training.ranks.title"><![CDATA[Rank Overview]]></item>
   </category>
 </language>

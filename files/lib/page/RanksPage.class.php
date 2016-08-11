@@ -3,7 +3,7 @@
 use wcf\data\rank\RankCache;
 use wcf\system\WCF;
 
-class RanksPage extends AbstractPage
+class RanksPage extends TrainingCenterPage
 {
   public $activeMenuItem = 'wcf.page.training.ranks';
 

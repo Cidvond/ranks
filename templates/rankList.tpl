@@ -1,87 +1,82 @@
 {include file='documentHeader'}
 <head>
-  <title>{lang}wcf.page.training.ranks{/lang} - {PAGE_TITLE|language}</title>
+    <title>{lang}wcf.page.training.ranks{/lang} - {PAGE_TITLE|language}</title>
 
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  {include file='headInclude' sandbox=false}
+    {include file='headInclude' sandbox=false}
 </head>
 
 <body id="tpl{$templateName|ucfirst}">
-  {include file='header'}
+    {include file='header' title='wcf.page.training.ranks.title'|language paddingBottom=30 light=true}
 
-  <header class="boxHeadline">    
-    <h1>{lang}wcf.page.training.ranks{/lang}</h1>
-  </header>
+    {include file='userNotice'}
 
-  {include file='userNotice'}
+    <div class="container marginTop">
 
-  <div class="container marginTop">
-    <ul class="containerList exampleList">
-      <li class="exampleBox">
-        <div>
-          <div class="containerHeadline">
-            <div id="accordion">
-
-              {foreach from=$categories item=category}
-                {if !$category->isDisabled && $hasRanks[$category->categoryID]}
-                  {assign var="branches" value=$lookup[$category->categoryID]['branches']}
-                  {assign var="paygrades" value=$lookup[$category->categoryID]['paygrades']}
-                  {assign var="ranks" value=$lookup[$category->categoryID]['ranks']}
-
-                  <h3>{$category->title} Ranks</h3>
-
-                  <div>
-                    <p class="info" style="margin-bottom:20px;">{$category->description}</p>
-
-                    <table style="text-align:center;">
-                      <thead>
-                        <tr>
-                          <td>Paygrade</td>
-                          {foreach from=$branches item=branch}
-                            <th>{$branch->name}</th>
-                          {/foreach}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {foreach from=$paygrades item=paygrade}
-                          <tr>
-                            <th>{$paygrade}</th>
-                            {foreach from=$branches item=branch}
-                              <td>
-                                {if $ranks[$paygrade][$branch->branchID]}
-                                  <p>{$ranks[$paygrade][$branch->branchID]->name}</p>
-                                  <p>{@$ranks[$paygrade][$branch->branchID]->getImage(80)}</p>
-                                  <p>{$ranks[$paygrade][$branch->branchID]->prefix}</p>
-                                {else}
-                                  <p>Rank Unavailable</p>
-                                  <img src="{$branch->rankUnavailableImage}" width="80"></p>
-                                  <p>in {$branch->name}</p>
-                                {/if}
-                              </td>
-                            {/foreach}
-                          </tr>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="tabs tabs-vertical tabs-left tabs-navigation">
+                    <ul class="nav nav-tabs col-sm-3">
+                        {foreach from=$categories item=category key=key}
+                            {counter assign=tabNo name=tabNo print=false}
+                            <li {if $tabNo == 1}class="active"{/if}>
+                                <a href="#tabCategory{$key}" data-toggle="tab">{$category->title}</a>
+                            </li>
                         {/foreach}
-                      </tbody>
-                    </table>
-                  </div>
-
-                {/if}
-              {/foreach}
+                    </ul>
+                </div>
             </div>
-          </div>
+
+            <div class="col-md-8">
+                {foreach from=$categories item=category key=key}
+                    {counter assign=paneNo name=paneNo print=false}
+
+                    {assign var="branches" value=$lookup[$category->categoryID]['branches']}
+                    {assign var="paygrades" value=$lookup[$category->categoryID]['paygrades']}
+                    {assign var="ranks" value=$lookup[$category->categoryID]['ranks']}
+
+                    <div class="tab-pane tab-pane-navigation {if $paneNo == 1}active{/if}" id="tabCategory{$key}">
+                        {if $paygrades|count}
+                            <table style="text-align:center;">
+                                <thead>
+                                <tr>
+                                    <td>Paygrade</td>
+                                    {foreach from=$branches item=branch}
+                                        <th>{$branch->name}</th>
+                                    {/foreach}
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {foreach from=$paygrades item=paygrade}
+                                    <tr>
+                                        <th>{$paygrade}</th>
+                                        {foreach from=$branches item=branch}
+                                            <td>
+                                                {if $ranks[$paygrade][$branch->branchID]}
+                                                    <p>{$ranks[$paygrade][$branch->branchID]->name}</p>
+                                                    <p>{@$ranks[$paygrade][$branch->branchID]->getImage(80)}</p>
+                                                    <p>{$ranks[$paygrade][$branch->branchID]->prefix}</p>
+                                                {else}
+                                                    <p>Rank Unavailable</p>
+                                                    <img src="{$branch->rankUnavailableImage}" width="80"></p>
+                                                    <p>in {$branch->name}</p>
+                                                {/if}
+                                            </td>
+                                        {/foreach}
+                                    </tr>
+                                {/foreach}
+                                </tbody>
+                            </table>
+                        {else}
+                            <div class="alert alert-warning">
+                                <strong>Oh noes!</strong> For some reason there's currently no content available in this category.
+                            </div>
+                        {/if}
+                    </div>
+                {/foreach}
+            </div>
         </div>
-      </li>
-    </ul>
-  </div>
+    </div>
 
-  <script data-relocate="true">
-    $(function() {
-      $("#accordion").accordion({
-        heightStyle: "content"
-      });
-    });
-  </script>
-
-  {include file='footer'}
+    {include file='footer' skipBreadcrumbs=true}
 </body>
 </html>
