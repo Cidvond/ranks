@@ -3,50 +3,45 @@
 	<import>
 
 		<!-- Branches -->
-		<acpmenuitem name="wcf.acp.menu.link.clan.branch">
+		<acpmenuitem name="wcf.acp.menu.link.clan.rank">
 			<parent>wcf.acp.menu.link.clan</parent>
-			<showorder>1</showorder>
+			<showorder>4</showorder>
 		</acpmenuitem>
 
-		<acpmenuitem name="wcf.acp.menu.link.clan.branch.list">
+		<acpmenuitem name="wcf.acp.menu.link.clan.rank.branch.list">
 			<controller><![CDATA[wcf\acp\page\BranchListPage]]></controller>
-			<parent>wcf.acp.menu.link.clan.branch</parent>
-			<permissions>admin.clan.branch.canManageBranches</permissions>
+			<parent>wcf.acp.menu.link.clan.rank</parent>
+			<permissions>admin.clan.rank.canManageBranches</permissions>
 			<showorder>1</showorder>
 		</acpmenuitem>
 		
-		<acpmenuitem name="wcf.acp.menu.link.clan.branch.add">
+		<acpmenuitem name="wcf.acp.menu.link.clan.rank.branch.add">
 			<controller><![CDATA[wcf\acp\form\BranchAddForm]]></controller>
-			<parent>wcf.acp.menu.link.clan.branch</parent>
-			<permissions>admin.clan.branch.canManageBranches</permissions>
+			<parent>wcf.acp.menu.link.clan.rank</parent>
+			<permissions>admin.clan.rank.canManageBranches</permissions>
 			<showorder>2</showorder>
 		</acpmenuitem>
 
 		<!-- Ranks -->
-		<acpmenuitem name="wcf.acp.menu.link.clan.rank">
-			<parent>wcf.acp.menu.link.clan</parent>
-			<showorder>2</showorder>
-		</acpmenuitem>
-
 		<acpmenuitem name="wcf.acp.menu.link.clan.rank.list">
 			<controller><![CDATA[wcf\acp\page\RankListPage]]></controller>
 			<parent>wcf.acp.menu.link.clan.rank</parent>
 			<permissions>admin.clan.rank.canManageRanks</permissions>
-			<showorder>1</showorder>
+			<showorder>3</showorder>
 		</acpmenuitem>
 
 		<acpmenuitem name="wcf.acp.menu.link.clan.rank.add">
 			<controller><![CDATA[wcf\acp\form\RankAddForm]]></controller>
 			<parent>wcf.acp.menu.link.clan.rank</parent>
 			<permissions>admin.clan.rank.canManageRanks</permissions>
-			<showorder>2</showorder>
+			<showorder>4</showorder>
 		</acpmenuitem>
 
 		<acpmenuitem name="wcf.acp.menu.link.clan.rank.category.list">
 			<controller><![CDATA[wcf\acp\page\RankCategoryListPage]]></controller>
 			<parent>wcf.acp.menu.link.clan.rank</parent>
 			<permissions>admin.clan.rank.canManageRanks</permissions>
-			<showorder>3</showorder>
+			<showorder>5</showorder>
 		</acpmenuitem>
 
 	</import>

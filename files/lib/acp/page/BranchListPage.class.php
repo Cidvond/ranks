@@ -4,11 +4,11 @@ use wcf\page\SortablePage;
 
 class BranchListPage extends SortablePage
 {
-    public $activeMenuItem = 'wcf.acp.menu.link.clan.branch.list';
+    public $activeMenuItem = 'wcf.acp.menu.link.clan.rank.branch.list';
 
     public $defaultSortField = 'displayOrder';
 
-    public $neededPermissions = ['admin.clan.branch.canManageBranches'];
+    public $neededPermissions = ['admin.clan.rank.canManageBranches'];
 
     public $objectListClassName = 'wcf\data\branch\BranchList';
 

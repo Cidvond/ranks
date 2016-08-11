@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de">
-
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="en" languagename="English" countrycode="gb">
   <category name="wcf.acp.group">
     <item name="wcf.acp.group.option.category.admin.clan.branch"><![CDATA[Branches]]></item>
     <item name="wcf.acp.group.option.admin.clan.branch.canManageBranches"><![CDATA[Can manage branches]]></item>
@@ -10,11 +9,10 @@
   </category>
 
   <category name="wcf.acp.menu">
-    <item name="wcf.acp.menu.link.clan.branch"><![CDATA[Branches]]></item>
-    <item name="wcf.acp.menu.link.clan.branch.list"><![CDATA[List Branches]]></item>
-    <item name="wcf.acp.menu.link.clan.branch.add"><![CDATA[Add Branch]]></item>
+    <item name="wcf.acp.menu.link.clan.rank"><![CDATA[Branches & Ranks]]></item>
+    <item name="wcf.acp.menu.link.clan.rank.branch.list"><![CDATA[List Branches]]></item>
+    <item name="wcf.acp.menu.link.clan.rank.branch.add"><![CDATA[Add Branch]]></item>
 
-    <item name="wcf.acp.menu.link.clan.rank"><![CDATA[Ranks]]></item>
     <item name="wcf.acp.menu.link.clan.rank.list"><![CDATA[List Ranks]]></item>
     <item name="wcf.acp.menu.link.clan.rank.category.list"><![CDATA[List Rank Categories]]></item>
     <item name="wcf.acp.menu.link.clan.rank.add"><![CDATA[Add Rank]]></item>
@@ -55,5 +53,4 @@
   <category name="wcf.page">
     <item name="wcf.page.training.ranks"><![CDATA[Ranks]]></item>
   </category>
-
 </language>

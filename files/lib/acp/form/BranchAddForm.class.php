@@ -4,9 +4,9 @@ use wcf\form\FormBuilder;
 
 class BranchAddForm extends FormBuilder
 {
-    public $activeMenuItem = "wcf.acp.menu.link.clan.branch.add";
+    public $activeMenuItem = "wcf.acp.menu.link.clan.rank.branch.add";
 
-    public $neededPermissions = ['admin.clan.branch.canManageBranches'];
+    public $neededPermissions = ['admin.clan.rank.canManageBranches'];
 
     protected function getAttributes() {
         return [
