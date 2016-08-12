@@ -1,4 +1,5 @@
-<?php namespace wcf\acp\form;
+<?php
+namespace wcf\acp\form;
 
 use wcf\form\FormBuilder;
 
@@ -8,7 +9,8 @@ class BranchAddForm extends FormBuilder
 
     public $neededPermissions = ['admin.clan.rank.canManageBranches'];
 
-    protected function getAttributes() {
+    protected function getAttributes()
+    {
         return [
             'branchID' => [
                 'type' => 'int',
@@ -30,7 +32,8 @@ class BranchAddForm extends FormBuilder
         ];
     }
 
-    protected function getObjectActionType() {
+    protected function getObjectActionType()
+    {
         return 'wcf\data\branch\BranchAction';
     }
 }

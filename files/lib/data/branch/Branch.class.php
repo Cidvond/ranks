@@ -21,25 +21,11 @@ class Branch extends DatabaseObject
 		return '';
 	}
 
-	/**
-	 * This is bodged! Please make this better!
-	 * @return array
-	 * @throws \wcf\system\database\DatabaseException
-	 */
 	public static function getAllBranches()
 	{
-		$table = self::$databaseTableName;
-		$sql = "SELECT * FROM wcf".WCF_N."_$table";
-		$statement = WCF::getDB()->prepareStatement($sql, 0);
-		$statement->execute(array());
+		$statement = WCF::getDB()->prepareStatement('SELECT * FROM ' . self::getDatabaseTableName() . ' ORDER BY displayOrder');
+		$statement->execute([]);
 
-		$branches = [];
-		while ($row = $statement->fetchArray()) {
-			$branches[] = $row;
-		}
-
-		return $branches;
+		return $statement->fetchObjects(self::class);
 	}
 }
-
- 

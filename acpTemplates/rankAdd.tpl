@@ -97,7 +97,7 @@
                 <dd>
                     <select id="branchID" name="branchID">
                         {foreach from=$branches item=branch}
-                            <option value="{$branch['branchID']}" {if $primaryID && $object->branchID == $branch['branchID']}selected{/if}>{$branch['name']}</option>
+                            <option value="{$branch->branchID}" {if $primaryID && $object->branchID == $branch->branchID}selected{/if}>{$branch->name}</option>
                         {/foreach}
                     </select>
                     {if $errorField == 'branchID'}

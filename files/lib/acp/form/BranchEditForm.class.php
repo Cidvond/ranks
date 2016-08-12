@@ -1,4 +1,5 @@
-<?php namespace wcf\acp\form;
+<?php
+namespace wcf\acp\form;
 
 class BranchEditForm extends BranchAddForm
 {

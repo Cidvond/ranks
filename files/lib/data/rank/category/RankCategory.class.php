@@ -1,4 +1,5 @@
-<?php namespace wcf\data\rank\category;
+<?php
+namespace wcf\data\rank\category;
 
 use wcf\data\category\AbstractDecoratedCategory;
 use wcf\data\rank\RankCache;
@@ -6,7 +7,8 @@ use wcf\data\ITraversableObject;
 use wcf\system\exception\SystemException;
 use wcf\system\WCF;
 
-class RankCategory extends AbstractDecoratedCategory implements \Countable, ITraversableObject {
+class RankCategory extends AbstractDecoratedCategory implements \Countable, ITraversableObject
+{
     protected $index = 0;
 
     protected $indexToObject = null;
@@ -20,24 +22,43 @@ class RankCategory extends AbstractDecoratedCategory implements \Countable, ITra
     /**
      * Loads associated ranks from cache.
      */
-    public function loadRanks() {
+    public function loadRanks()
+    {
         if ($this->ranks === null) {
-            $this->ranks = RankCache::getInstance()->getCategorySmilies($this->categoryID ?: null);
+            $this->ranks = RankCache::getInstance()->getCategoryRanks($this->categoryID);
             $this->indexToObject = array_keys($this->ranks);
         }
+    }
+
+    public function getRankTree()
+    {
+        $tree = [];
+
+        foreach ($this->ranks as $rank) {
+            $paygrade = $rank->paygrade;
+
+            $tree['ranks'][$paygrade][$rank->branch->branchID] = $rank;
+            $tree['paygrades'][] = $paygrade;
+        }
+
+        $tree['paygrades'] = array_unique($tree['paygrades']);
+
+        return $tree;
     }
 
     /**
      * @see	\Countable::count()
      */
-    public function count() {
+    public function count()
+    {
         return count($this->ranks);
     }
 
     /**
      * @see	\Iterator::current()
      */
-    public function current() {
+    public function current()
+    {
         $objectID = $this->indexToObject[$this->index];
         return $this->ranks[$objectID];
     }
@@ -48,35 +69,40 @@ class RankCategory extends AbstractDecoratedCategory implements \Countable, ITra
      *
      * @see	\Iterator::key()
      */
-    public function key() {
+    public function key()
+    {
         return $this->indexToObject[$this->index];
     }
 
     /**
      * @see	\Iterator::next()
      */
-    public function next() {
+    public function next()
+    {
         ++$this->index;
     }
 
     /**
      * @see	\Iterator::rewind()
      */
-    public function rewind() {
+    public function rewind()
+    {
         $this->index = 0;
     }
 
     /**
      * @see	\Iterator::valid()
      */
-    public function valid() {
+    public function valid()
+    {
         return isset($this->indexToObject[$this->index]);
     }
 
     /**
      * @see	\SeekableIterator::seek()
      */
-    public function seek($index) {
+    public function seek($index)
+    {
         $this->index = $index;
 
         if (!$this->valid()) {
@@ -87,7 +113,8 @@ class RankCategory extends AbstractDecoratedCategory implements \Countable, ITra
     /**
      * @see	\wcf\data\ITraversableObject::seekTo()
      */
-    public function seekTo($objectID) {
+    public function seekTo($objectID)
+    {
         $this->index = array_search($objectID, $this->indexToObject);
 
         if ($this->index === false) {
@@ -98,7 +125,8 @@ class RankCategory extends AbstractDecoratedCategory implements \Countable, ITra
     /**
      * @see	\wcf\data\ITraversableObject::search()
      */
-    public function search($objectID) {
+    public function search($objectID)
+    {
         try {
             $this->seekTo($objectID);
             return $this->current();
@@ -113,7 +141,8 @@ class RankCategory extends AbstractDecoratedCategory implements \Countable, ITra
      *
      * @return	string
      */
-    public function __toString() {
+    public function __toString()
+    {
         return WCF::getLanguage()->get($this->title);
     }
 }

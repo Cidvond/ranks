@@ -16,18 +16,8 @@ class RankCache extends SingletonFactory
 
     protected function init()
     {
-        // get smiley cache
-        $this->cachedRanks = RankCacheBuilder::getInstance()->getData(array(), 'ranks');
+        $this->cachedRanks = RankCacheBuilder::getInstance()->getData([], 'ranks');
         $rankCategories = CategoryHandler::getInstance()->getCategories('com.clanunknownsoldiers.rank.category');
-
-        $this->cachedCategories[null] = new RankCategory(new Category(null, array(
-            'categoryID' => null,
-            'parentCategoryID' => 0,
-            'title' => 'All Categories',
-            'description' => '',
-            'showOrder' => -1,
-            'isDisabled' => 0
-        )));
 
         foreach ($rankCategories as $key => $rankCategory) {
             $this->cachedCategories[$key] = new RankCategory($rankCategory);
@@ -50,13 +40,13 @@ class RankCache extends SingletonFactory
     public function getVisibleCategories()
     {
         if ($this->visibleCategories === null) {
-            $this->visibleCategories = array();
+            $this->visibleCategories = [];
 
             foreach ($this->cachedCategories as $key => $category) {
                 if (!$category->isDisabled) {
                     $category->loadRanks();
 
-                    if (count($category)) {
+                    if ($category) {
                         $this->visibleCategories[$key] = $category;
                     }
                 }
